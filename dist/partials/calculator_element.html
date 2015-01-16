@@ -1,0 +1,67 @@
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="calculator-header"><span class="title">Vyberte částku</span><span class="range">1000-7500Kč</span></div>
+    <range-slider step="100" min="1000" max="7500" target="service.amount"></range-slider>
+    <h3>Vyberte částku
+      <div class="range">7 - 30 dnů</div>
+    </h3>
+    <range-slider step="1" min="7" max="30" target="service.deadline"></range-slider><br/><br/><br/>
+    <calculator-slider></calculator-slider>
+  </div>
+  <div class="col-sm-4">
+    <div class="calculator-info">
+      <table>
+        <tbody>
+          <tr id="agreement-end-date">
+            <td class="name">Den splatnosti</td>
+            <td class="date highlight">{{service.deadline | timestamp | date}}</td>
+          </tr>
+          <tr id="new-principal">
+            <td class="name">Výše půjčky</td>
+            <td class="value">{{service.amount}},-Kč</td>
+          </tr>
+          <tr id="new-interest-before-discount">
+            <td class="name">Poplatek</td>
+            <td class="value">{{0}},-Kč</td>
+          </tr>
+          <tr id="interest-rate">
+            <td class="name">Roční úroková sazba</td>
+            <td class="value">{{0}},-Kč</td>
+          </tr>
+          <tr id="annual-percentage-rate">
+            <td class="name">RPSN</td>
+            <td class="value">{{0}},-Kč</td>
+          </tr>
+          <tr id="monthly-payment" class="last">
+            <td class="name"><span class="highlight">Celkem ke splacení</span></td>
+            <td class="value total"><span class="highlight strong">{{service.amount}},-Kč</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="block-extend-info">
+      <table class="extend-info">
+        <thead>
+          <tr>
+            <th colspan="2" class="days">Prodloužení splatnosti půjčky:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">7 dnů:</td>
+            <td class="value">{735 Kč}</td>
+          </tr>
+          <tr>
+            <td class="name">14 dnů:</td>
+            <td class="value">{945 Kč}</td>
+          </tr>
+          <tr>
+            <td class="name">30 dnů:</td>
+            <td class="value">{1 425 Kč}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

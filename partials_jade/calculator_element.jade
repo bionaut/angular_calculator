@@ -1,0 +1,64 @@
+.row
+	//- slider panel
+	.col-sm-8
+		
+		.calculator-header
+			span.title Vyberte částku
+			span.range 1000-7500Kč
+		//- component
+		range-slider(step="100", min="1000", max="7500", target="service.amount")
+
+		
+		h3 Vyberte částku
+			.range 7 - 30 dnů
+		//- component
+		range-slider(step="1", min="7", max="30", target="service.deadline")
+
+		br
+		br
+		br
+		calculator-slider
+
+	//- side panel
+	.col-sm-4
+		.calculator-info
+			table
+				tbody
+					tr#agreement-end-date
+						td.name Den splatnosti
+						td.date.highlight {{service.deadline | timestamp | date}}
+					tr#new-principal
+						td.name Výše půjčky
+						td.value {{service.amount}},-Kč
+					tr#new-interest-before-discount
+						td.name Poplatek
+						td.value {{0}},-Kč
+					tr#interest-rate
+						td.name Roční úroková sazba
+						td.value {{0}},-Kč
+					tr#annual-percentage-rate
+						td.name RPSN
+						td.value {{0}},-Kč
+					tr#monthly-payment.last
+						td.name
+							span.highlight Celkem ke splacení
+						td.value.total
+							span.highlight.strong {{service.amount}},-Kč
+		.block-extend-info
+			table.extend-info
+				thead
+					tr
+						th.days(colspan='2') Prodloužení splatnosti půjčky:
+				tbody
+					tr
+						td.name 7 dnů:
+						td.value {735 Kč}
+					tr
+						td.name 14 dnů:
+						td.value {945 Kč}
+					tr
+						td.name 30 dnů:
+						td.value {1 425 Kč}
+
+
+
