@@ -4,32 +4,33 @@
 		
 		.calculator-header
 			span.title Vyberte částku
-			span.range 1000-7500Kč
-		//- component
-		range-slider(step="100", min="1000", max="7500", target="service.amount")
-
+			span.range {{output.amount.min}} - {{output.amount.max}}
 		
-		h3 Vyberte částku
-			.range 7 - 30 dnů
-		//- component
-		range-slider(step="1", min="7", max="30", target="service.deadline")
 
-		br
-		br
-		br
-		calculator-slider
+		slider(floor="{{output.amount.min}}",
+			ceiling ="{{output.amount.max}}",
+			step="{{output.amount.step}}",
+			ng-model = "output.amount.current")
+
+		.calculator-header
+			span.title Deadline
+			span.range {{output.term.min}} - {{output.term.max}}
+
+		slider(floor="{{output.term.min}}",
+			ceiling ="{{output.term.max}}",
+			step="{{output.term.step}}",
+			ng-model = "output.term.current")
 
 	//- side panel
 	.col-sm-4
-		.calculator-info
 			table
 				tbody
 					tr#agreement-end-date
 						td.name Den splatnosti
-						td.date.highlight {{service.deadline | timestamp | date}}
+						td.date.highlight {{output.term.current | timestamp | date}}
 					tr#new-principal
 						td.name Výše půjčky
-						td.value {{service.amount}},-Kč
+						td.value {{output.total_principal}},-Kč
 					tr#new-interest-before-discount
 						td.name Poplatek
 						td.value {{0}},-Kč
@@ -43,8 +44,7 @@
 						td.name
 							span.highlight Celkem ke splacení
 						td.value.total
-							span.highlight.strong {{service.amount}},-Kč
-		.block-extend-info
+							span.highlight.strong {{output.amount}},-Kč
 			table.extend-info
 				thead
 					tr
@@ -59,6 +59,7 @@
 					tr
 						td.name 30 dnů:
 						td.value {1 425 Kč}
+
 
 
 

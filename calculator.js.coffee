@@ -1,60 +1,56 @@
 # Calculator Module
 #
 # Microloan calculator
-#
 
 angular
-        .module 'Calculator', []
-
-        # CalculatorService
-        .factory 'calculatorService', () ->
-          loan=
-            amount: 7400
-            deadline: 30
-          
-          # return
-          loan
-          
+        .module 'Calculator', ['ui.slider']
         
+
         # MAIN directive
-        .directive 'calculator', (calculatorService) ->
+        .directive 'calculator', ($q, $http) ->
           restrict: 'E'
           templateUrl: 'partials/calculator_element.html'
           controller: ($scope) ->
-            $scope.service = calculatorService
-          
+            
+            $scope.output = {}
 
-        # range slider
-        .directive 'rangeSlider', (calculatorService) ->
-          restrict: 'E'
-          templateUrl: 'partials/calculator_range_slider.html'
-          scope:{
-            min: '='
-            max: '='
-            step: '='
-            target: '='
-          }
-          controller: ($scope) ->
-            console.log $scope.target
+            requestOptions =
+              headers:
+                'Accept': 'application/json; charset=utf-8'
+                'Content-Type': 'application/json'
+
+            offer = $http.get "http://localhost:3000/offer",
+              requestOptions
+
+            constraints = $http.get "http://localhost:3000/constraints",
+              requestOptions
+
+            $q.all([ offer, constraints])
+            .then (result) ->
+              tmp = []
+              angular.forEach result, (response, key, obj) ->
+                if response.data.hasOwnProperty 'offer'
+                  $scope.viewOffer = response.data.offer
+                if response.data.hasOwnProperty 'constraints'
+                  $scope.viewConstraints = response.data
+
+                  $scope.output.amount=
+                    current: parseInt response.data.constraints.amount_interval.default_value
+                    min: parseInt response.data.constraints.amount_interval.min
+                    max: parseInt response.data.constraints.amount_interval.max
+                    step: parseInt response.data.constraints.amount_interval.step
+
+                  $scope.output.term=
+                    current: parseInt response.data.constraints.term_interval.default_value
+                    min: parseInt response.data.constraints.term_interval.min
+                    max: parseInt response.data.constraints.term_interval.max
+                    step: parseInt response.data.constraints.term_interval.step
 
 
-
-
-        # SLIDER directive
-        .directive 'calculatorSlider', () ->
-          restrict: 'E'
-          replace: true
-          link: (s,e,a) ->
-            $(e).noUiSlider
-              start: [ 4000 ]
-              range:
-                'min': [  2000 ]
-                'max': [ 10000 ]
+                  console.log $scope.viewConstraints # zmazat
 
 
         .filter 'timestamp', () ->
           return (input) ->
             now = new Date().getTime()
             (input * 24*60*60*1000) + now
-
-            
