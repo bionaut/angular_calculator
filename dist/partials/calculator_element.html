@@ -2,9 +2,9 @@
 <div class="row">
   <div class="col-sm-8">
     <div class="calculator-header"><span class="title">Vyberte částku</span><span class="range">{{output.amount.min}} - {{output.amount.max}}</span></div>
-    <slider floor="{{output.amount.min}}" ceiling="{{output.amount.max}}" step="{{output.amount.step}}" ng-model="output.amount.current"></slider>
+    <jk-slider min="output.amount.min" max="output.amount.max" step="output.amount.step" current="output.amount.current" limits="output.amount.limits"></jk-slider>
     <div class="calculator-header"><span class="title">Deadline</span><span class="range">{{output.term.min}} - {{output.term.max}}</span></div>
-    <slider floor="{{output.term.min}}" ceiling="{{output.term.max}}" step="{{output.term.step}}" ng-model="output.term.current"></slider>
+    <jk-slider min="output.term.min" max="output.term.max" step="output.term.step" current="output.term.current"></jk-slider>
   </div>
   <div class="col-sm-4">
     <table>
@@ -15,23 +15,23 @@
         </tr>
         <tr id="new-principal">
           <td class="name">Výše půjčky</td>
-          <td class="value">{{output.total_principal}},-Kč</td>
+          <td class="value">{{output.amount.current}},-Kč</td>
         </tr>
         <tr id="new-interest-before-discount">
           <td class="name">Poplatek</td>
-          <td class="value">{{0}},-Kč</td>
+          <td class="value">{{output.sidebar.new_interest_before_discount}},-Kč</td>
         </tr>
         <tr id="interest-rate">
           <td class="name">Roční úroková sazba</td>
-          <td class="value">{{0}},-Kč</td>
+          <td class="value">{{output.sidebar.interest_rate}},-Kč</td>
         </tr>
         <tr id="annual-percentage-rate">
           <td class="name">RPSN</td>
-          <td class="value">{{0}},-Kč</td>
+          <td class="value">{{output.sidebar.annual_percentage_rate}},-Kč</td>
         </tr>
         <tr id="monthly-payment" class="last">
           <td class="name"><span class="highlight">Celkem ke splacení</span></td>
-          <td class="value total"><span class="highlight strong">{{output.amount}},-Kč</span></td>
+          <td class="value total"><span class="highlight strong">{{output.amount.current}},-Kč</span></td>
         </tr>
       </tbody>
     </table>
@@ -42,17 +42,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="name">7 dnů:</td>
-          <td class="value">{735 Kč}</td>
-        </tr>
-        <tr>
-          <td class="name">14 dnů:</td>
-          <td class="value">{945 Kč}</td>
-        </tr>
-        <tr>
-          <td class="name">30 dnů:</td>
-          <td class="value">{1 425 Kč}</td>
+        <tr ng-repeat="fee in output.fees | orderBy: 'price' ">
+          <td class="name">{{fee.days}} dnů:</td>
+          <td class="value">{{fee.price}},-Kč</td>
         </tr>
       </tbody>
     </table>

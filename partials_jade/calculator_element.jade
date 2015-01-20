@@ -5,21 +5,25 @@
 		.calculator-header
 			span.title Vyberte částku
 			span.range {{output.amount.min}} - {{output.amount.max}}
-		
 
-		slider(floor="{{output.amount.min}}",
-			ceiling ="{{output.amount.max}}",
-			step="{{output.amount.step}}",
-			ng-model = "output.amount.current")
+		jk-slider(
+				min="output.amount.min",
+				max="output.amount.max",
+				step="output.amount.step",
+				current="output.amount.current",
+				limits="output.amount.limits"
+				)
 
 		.calculator-header
 			span.title Deadline
 			span.range {{output.term.min}} - {{output.term.max}}
 
-		slider(floor="{{output.term.min}}",
-			ceiling ="{{output.term.max}}",
-			step="{{output.term.step}}",
-			ng-model = "output.term.current")
+		jk-slider(
+				min="output.term.min",
+				max="output.term.max",
+				step="output.term.step",
+				current="output.term.current"
+				)
 
 	//- side panel
 	.col-sm-4
@@ -30,35 +34,30 @@
 						td.date.highlight {{output.term.current | timestamp | date}}
 					tr#new-principal
 						td.name Výše půjčky
-						td.value {{output.total_principal}},-Kč
+						td.value {{output.amount.current}},-Kč
 					tr#new-interest-before-discount
 						td.name Poplatek
-						td.value {{0}},-Kč
+						td.value {{output.sidebar.new_interest_before_discount}},-Kč
 					tr#interest-rate
 						td.name Roční úroková sazba
-						td.value {{0}},-Kč
+						td.value {{output.sidebar.interest_rate}},-Kč
 					tr#annual-percentage-rate
 						td.name RPSN
-						td.value {{0}},-Kč
+						td.value {{output.sidebar.annual_percentage_rate}},-Kč
 					tr#monthly-payment.last
 						td.name
 							span.highlight Celkem ke splacení
 						td.value.total
-							span.highlight.strong {{output.amount}},-Kč
+							span.highlight.strong {{output.amount.current}},-Kč
 			table.extend-info
 				thead
 					tr
 						th.days(colspan='2') Prodloužení splatnosti půjčky:
 				tbody
-					tr
-						td.name 7 dnů:
-						td.value {735 Kč}
-					tr
-						td.name 14 dnů:
-						td.value {945 Kč}
-					tr
-						td.name 30 dnů:
-						td.value {1 425 Kč}
+					tr(ng-repeat = "fee in output.fees | orderBy: 'price' ")
+						td.name {{fee.days}} dnů:
+						td.value {{fee.price}},-Kč
+					
 
 
 

@@ -1,0 +1,79 @@
+@import 'nib'
+
+.slider-wrapper
+	relative top left
+	width 100%
+	background #99bef3
+	margin-top 20px
+	clearfix()
+	box-sizing: border-box
+	
+	.subtract, .add
+		relative top left
+		float left
+		// zmenit na padding hack a percenta
+		width 10%
+		height 35px
+		line-height 35px
+		background blue
+	.subtract:after
+		absolute top left
+		content '-'
+		text-align center
+		font-size 30px
+		width 100%
+		color white
+	
+	.add:after
+		absolute top left
+		content '+'
+		text-align center
+		font-size 25px
+		width 100%
+		color white		
+
+	.bar-wrapper
+		relative top left
+		float left
+		width 60%
+		height 15px
+		background yellow
+		margin-top 10px
+		
+		.limits
+			absolute top left
+			width 100%
+			height 30px
+			margin-top -30px
+			.limit
+				absolute top left
+				width auto
+				transform translateX(-50%)
+			
+		
+		.handle
+			absolute top -10px left
+			height 35px
+			width 10px			
+			background red
+			transform translateX(-50%)
+			transition all .2 ease
+		
+		.active-bar
+			relative top left
+			height 100%
+			width 20%
+			background green
+			transition all .2 ease
+	
+
+	.amountInput
+		relative top left
+		// margin 25px
+		margin-left 0px
+		width 20%
+		line-height 35px
+		text-align center
+		float left
+		padding 0
+		

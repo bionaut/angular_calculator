@@ -1285,178 +1285,81 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/dist\/vendor\/angular-slider\/README.md": {
-		"enableFootnoteSupport": 0,
-		"enableSmartyPants": 1,
-		"expandTabs": 1,
-		"fileType": 4096,
-		"ignore": 0,
+	"\/dist\/index.html": {
+		"fileType": 8192,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/angular-slider\/README.md",
-		"outputAbbreviatedPath": "\/dist\/vendor\/angular-slider\/README.html",
+		"inputAbbreviatedPath": "\/dist\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/dist\/vendor\/angular-slider\/slider.coffee": {
+	"\/dist\/partials\/calculator_element.html": {
+		"fileType": 8192,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/dist\/partials\/calculator_element.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/dist\/vendor\/jk_slider\/jk_slider.css": {
+		"fileType": 16,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/dist\/vendor\/jk_slider\/jk_slider.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/dist\/vendor\/jk_slider\/jk_slider.html": {
+		"fileType": 8192,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/dist\/vendor\/jk_slider\/jk_slider.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/jk_slider\/jk_slider.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/angular-slider\/slider.coffee",
-		"minifyOutput": 1,
-		"outputAbbreviatedPath": "\/dist\/vendor\/angular-slider\/slider.js",
+		"inputAbbreviatedPath": "\/jk_slider\/jk_slider.coffee",
+		"minifyOutput": 0,
+		"outputAbbreviatedPath": "\/dist\/vendor\/jk_slider\/jk_slider.js",
 		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
+		"outputPathIsSetByUser": 1,
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 1
 		},
-	"\/dist\/vendor\/angular-slider\/slider.css": {
-		"fileType": 16,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/angular-slider\/slider.css",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/dist\/vendor\/angular-slider\/slider.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/angular-slider\/slider.js",
-		"outputAbbreviatedPath": "\/dist\/vendor\/angular-slider\/min\/slider-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/dist\/vendor\/angular-slider\/slider.scss": {
+	"\/jk_slider\/slider.css.styl": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
-		"decimalPrecision": 10,
-		"fileType": 4,
+		"fileType": 8,
 		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/angular-slider\/slider.scss",
-		"outputAbbreviatedPath": "\/dist\/vendor\/css\/slider.css",
+		"ignoreWasSetByUser": 1,
+		"importCSS": 0,
+		"inputAbbreviatedPath": "\/jk_slider\/slider.css.styl",
+		"outputAbbreviatedPath": "\/dist\/vendor\/jk_slider\/jk_slider.css",
 		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
+		"outputPathIsSetByUser": 1,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
-		"useLibsass": 0
+		"resolveRelativeURLS": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 0
 		},
-	"\/dist\/vendor\/angularjs-slider\/demo\/index.html": {
-		"fileType": 8192,
+	"\/jk_slider\/slider.tmp.jade": {
+		"compileDebug": 1,
+		"fileType": 512,
 		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/angularjs-slider\/demo\/index.html",
-		"outputAbbreviatedPath": "No Output Path",
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/jk_slider\/slider.tmp.jade",
+		"outputAbbreviatedPath": "\/dist\/vendor\/jk_slider\/jk_slider.html",
 		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/dist\/vendor\/angularjs-slider\/demo\/tabs.html": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/angularjs-slider\/demo\/tabs.html",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/dist\/vendor\/angularjs-slider\/dist\/rzslider.css": {
-		"fileType": 16,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/angularjs-slider\/dist\/rzslider.css",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/dist\/vendor\/angularjs-slider\/dist\/rzslider.min.css": {
-		"fileType": 16,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/angularjs-slider\/dist\/rzslider.min.css",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/dist\/vendor\/angularjs-slider\/dist\/rzslider.min.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/angularjs-slider\/dist\/rzslider.min.js",
-		"outputAbbreviatedPath": "\/dist\/vendor\/angularjs-slider\/dist\/min\/rzslider.min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/dist\/vendor\/angularjs-slider\/Gruntfile.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/angularjs-slider\/Gruntfile.js",
-		"outputAbbreviatedPath": "\/dist\/vendor\/angularjs-slider\/min\/Gruntfile-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/dist\/vendor\/angularjs-slider\/README.md": {
-		"enableFootnoteSupport": 0,
-		"enableSmartyPants": 1,
-		"expandTabs": 1,
-		"fileType": 4096,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/angularjs-slider\/README.md",
-		"outputAbbreviatedPath": "\/dist\/vendor\/angularjs-slider\/README.html",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/dist\/vendor\/angularjs-slider\/rzslider.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/angularjs-slider\/rzslider.js",
-		"outputAbbreviatedPath": "\/dist\/vendor\/angularjs-slider\/min\/rzslider-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/dist\/vendor\/angularjs-slider\/rzslider.less": {
-		"allowInsecureImports": 0,
-		"createSourceMap": 0,
-		"disableJavascript": 0,
-		"fileType": 1,
-		"ieCompatibility": 1,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/angularjs-slider\/rzslider.less",
-		"outputAbbreviatedPath": "\/dist\/vendor\/css\/rzslider.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
-		"strictImports": 0,
-		"strictMath": 0,
-		"strictUnits": 0
-		},
-	"\/dist\/vendor\/angularslider\/angular-slider.min.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/angularslider\/angular-slider.min.js",
-		"outputAbbreviatedPath": "\/dist\/vendor\/angularslider\/min\/angular-slider.min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
+		"outputPathIsSetByUser": 1,
+		"outputStyle": 0
 		},
 	"\/partials_jade\/calculator_element.jade": {
 		"compileDebug": 1,
@@ -1479,12 +1382,44 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 0
+		},
+	"\/slider\/slider.coffee": {
+		"createSourceMap": 0,
+		"fileType": 32,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/slider\/slider.coffee",
+		"minifyOutput": 1,
+		"outputAbbreviatedPath": "\/slider\/slider.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"syntaxCheckerStyle": 1
+		},
+	"\/slider\/slider.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/slider\/slider.js",
+		"outputAbbreviatedPath": "\/slider\/min\/slider-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
 		}
 	},
 "hooks": [
 	],
 "lastSavedByUser": "Honza",
 "manualImportLinks": {
+	"\/calculator.js.coffee": [
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/slider\/slider.coffee",
+			"position": 0,
+			"type": 0
+			}
+		]
 	},
 "projectAttributes": {
 	"bowerAbbreviatedPath": "",

@@ -1,9 +1,8 @@
 # Calculator Module
-#
 # Microloan calculator
 
 angular
-        .module 'Calculator', ['ui.slider']
+        .module 'Calculator', ['jk.slider']
         
 
         # MAIN directive
@@ -29,25 +28,41 @@ angular
             .then (result) ->
               tmp = []
               angular.forEach result, (response, key, obj) ->
+                
+                # offer
                 if response.data.hasOwnProperty 'offer'
-                  $scope.viewOffer = response.data.offer
+                  
+                  # format output for sidebar fees
+                  angular.forEach response.data.offer.extension_fees, (value, key) ->
+                    tmp.push
+                      days: key
+                      price: value
+                  $scope.output.fees = tmp
+
+                  # format output for sidebar
+                  $scope.output.sidebar =
+                    new_interest_before_discount: parseInt response.data.offer.new_interest_before_discount
+                    interest_rate:                parseInt response.data.offer.interest_rate
+                    annual_percentage_rate:       parseInt response.data.offer.annual_percentage_rate
+
+
+                # constraints
                 if response.data.hasOwnProperty 'constraints'
                   $scope.viewConstraints = response.data
 
                   $scope.output.amount=
-                    current: parseInt response.data.constraints.amount_interval.default_value
-                    min: parseInt response.data.constraints.amount_interval.min
-                    max: parseInt response.data.constraints.amount_interval.max
-                    step: parseInt response.data.constraints.amount_interval.step
+                    current:    parseInt response.data.constraints.amount_interval.default_value
+                    min:        parseInt response.data.constraints.amount_interval.min
+                    max:        parseInt response.data.constraints.amount_interval.max
+                    step:       parseInt response.data.constraints.amount_interval.step
+                    limits:     response.data.constraints.loan_limits
 
                   $scope.output.term=
-                    current: parseInt response.data.constraints.term_interval.default_value
-                    min: parseInt response.data.constraints.term_interval.min
-                    max: parseInt response.data.constraints.term_interval.max
-                    step: parseInt response.data.constraints.term_interval.step
-
-
-                  console.log $scope.viewConstraints # zmazat
+                    current:    parseInt response.data.constraints.term_interval.default_value
+                    min:        parseInt response.data.constraints.term_interval.min
+                    max:        parseInt response.data.constraints.term_interval.max
+                    step:       parseInt response.data.constraints.term_interval.step
+                    # limits:   response.data.constraints.loan_limits
 
 
         .filter 'timestamp', () ->
