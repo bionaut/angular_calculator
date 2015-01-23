@@ -4,10 +4,10 @@
 	
 	//- slider bar with active area
 	.bar-wrapper(detect-click)
-		.active-bar(ng-style="{width:getPercentage(current)}")
+		.active-bar(ng-style="{width:getPercentage(model)}")
 		
 		//- handle
-		.handle(smart-handle ,ng-style="{left:getPercentage(current)}" )
+		.handle(smart-handle ,ng-style="{left:getPercentage(model)}" )
 			.tooltip_top(ng-if="barTooltip")
 			.tooltip_bottom(ng-if="barTooltip")
 
@@ -32,4 +32,4 @@
 		  			  step="{{step}}",
 		  			  min="{{min}}",
 		  			  max="{{max}}",
-		  			  ng-model="current")
+		  			  ng-model="model")

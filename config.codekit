@@ -1303,6 +1303,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/dist\/vendor\/smart_slider\/smart_slider.css": {
+		"fileType": 16,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/dist\/vendor\/smart_slider\/smart_slider.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/dist\/vendor\/smart_slider\/smart_slider.html": {
 		"fileType": 8192,
 		"ignore": 1,
@@ -1334,6 +1343,17 @@
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 0
 		},
+	"\/smart_slider\/index.jade": {
+		"compileDebug": 1,
+		"fileType": 512,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/smart_slider\/index.jade",
+		"outputAbbreviatedPath": "\/dist\/vendor\/smart_slider\/index.html",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 1,
+		"outputStyle": 0
+		},
 	"\/smart_slider\/slider.css.styl": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -1359,7 +1379,7 @@
 		"outputAbbreviatedPath": "\/dist\/vendor\/smart_slider\/smart_slider.html",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 1,
-		"outputStyle": 0
+		"outputStyle": 1
 		},
 	"\/smart_slider\/smart_slider.coffee": {
 		"createSourceMap": 0,
@@ -2151,7 +2171,7 @@
 			}
 		},
 	"uglifyReservedNamesString": "$",
-	"websiteRelativeRoot": "dist"
+	"websiteRelativeRoot": "dist\/vendor\/smart_slider"
 	},
 "settingsFileVersion": "2"
 }

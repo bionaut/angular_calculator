@@ -62,6 +62,7 @@ angular
                     max:        parseInt response.data.constraints.max_term
                     step:       parseInt response.data.constraints.term_step
                     # limits:   response.data.constraints.loan_limits
+            # backup for testing
             ,(err) ->
               $scope.output.sidebar =
                 new_interest_before_discount: 777

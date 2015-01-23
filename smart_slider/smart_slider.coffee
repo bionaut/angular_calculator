@@ -5,7 +5,6 @@
 ######################################
 
 
-
 angular
         .module 'smartSlider.module', []
           
@@ -17,11 +16,11 @@ angular
           sId = null
 
           # listeners
-          angular.element($window).on 'mouseup', (ev) ->
+          angular.element($window).on 'mouseup touchend', (ev) ->
             $rootScope.$broadcast 'selectedreleased'
             selected = null
             sId = null
-          angular.element($window).on 'mousemove', (ev) ->
+          angular.element($window).on 'mousemove touchmove', (ev) ->
             if selected
               $rootScope.$broadcast 'moveselected', ev.pageX
               
@@ -39,24 +38,31 @@ angular
         # MAIN DIRECTIVE
         .directive 'smartSlider', (mouseService) ->
           scope:
-            min: '='
-            max: '='
-            step: '='
-            current: '='
+            min: '=?'
+            max: '=?'
+            step: '=?'
+            model: '=?'
             limits: '=?'
             sections: '=?'
             # barTooltip: '=?'
 
           restrict: 'E'
-          templateUrl: "vendor/smart_slider/smart_slider.html"
+          # templateUrl: "vendor/smart_slider/smart_slider.html"
+          template: '<div class="slider-wrapper"><div ng-click="subtract(step)" class="subtract"></div><div detect-click="detect-click" class="bar-wrapper"><div ng-style="{width:getPercentage(model)}" class="active-bar"></div><div smart-handle="smart-handle" ng-style="{left:getPercentage(model)}" class="handle"><div ng-if="barTooltip" class="tooltip_top"></div><div ng-if="barTooltip" class="tooltip_bottom"></div></div><div ng-if="breakpoints" class="breakpoints"><div ng-repeat="breakpoint in breakpoints" ng-style="{left:getPercentage(breakpoint)}" stop-propagation="stop-propagation" ng-click="goTo(breakpoint)" class="breakpoint">{{breakpoint}}</div></div><div ng-if="limits" class="limits"><div ng-repeat="limit in limits" ng-style="{left:getPercentage(limit)}" class="limit">{{limit}}</div></div></div><div ng-click="add(step)" class="add"></div><input type="number" step="{{step}}" min="{{min}}" max="{{max}}" ng-model="model" class="amountInput"/></div>'
           replace: true
 
           controller: ($scope, $element, $timeout) ->
             
             s = $scope
 
+            # default values
+            if !s.min then s.min = 0
+            if !s.max then s.max = 100
+            if !s.step then s.step = 1
+            
+
             # window events listener
-            s.$on 'moveselected', (ev, pageX) ->
+            s.$on 'moveselected', (ev, pageX, $rootScope) ->
               if s.$id == mouseService.selected()[1]
                 # define elements
                 targetScope = ev.targetScope
@@ -67,16 +73,25 @@ angular
                 offset.percentage = offset.width / 100
                 percInPx = ( (pageX - offset.left) / offset.percentage)
                 # apply new value based on handle position
-                s.current = s.getValueOfPercentage(percInPx, offset)
+                s.model = s.getValueOfPercentage(percInPx, offset)
                 s.$apply()
 
 
             # backup $watcher which keeps the values in the defined range
-            s.$watch 'current', (n) ->
-              if n < s.min then s.current = s.min
-              if n > s.max then s.current = s.max
+            s.$watch 'model', (n, o) ->
+              if n == undefined
+                s.model = s.min
+              # limit range
+              if n < s.min then s.model = s.min
+              if n > s.max then s.model = s.max
+              
+              if o!=undefined or n!=undefined and s.sections and s.breakpoints == undefined
+                s.breakpoints = []
+                stepDif = s.max / s.sections
+                for num in [1..s.sections]
+                  if (num*stepDif) > s.min
+                    s.breakpoints.push s.roundNum (stepDif * num), s.step, 0
           
-
 
             # f() for rounding numbers
             s.roundNum = (number, increment, offset) ->
@@ -84,47 +99,40 @@ angular
 
             # f() for getting offset of an element in !pixels!
             s.getOffset = (element) ->
-              offset = element.get(0).getBoundingClientRect()
+              offset = element[0].getBoundingClientRect()
               return offset
             
-
             # helper methods
             s.getPercentage = (n) ->
               onePerc = (s.max - s.min) / 100
               return ( (n-s.min) / onePerc ) + "%"
             s.getValueOfPercentage = (perc, offset) ->
-              range = s.max - s.min
+              if s.max > s.min
+                range = s.max - s.min
+              else
+                range = s.min - s.max
+              
               if offset?
                 return s.roundNum(((perc / 100) * range) + s.min, s.step, 0)
             s.goTo = (value) ->
               if value?
-                s.current = value
+                s.model = value
               return
 
             # slider buttons methods
             s.add = (step) ->
-              s.current += step
-              if s.current > s.max
-                s.current = s.max
+              s.model += step
+              if s.model > s.max
+                s.model = s.max
             s.subtract = (step) ->
-              s.current -= step
-              if s.current < s.min
-                s.current = s.min
+              s.model -= step
+              if s.model < s.min
+                s.model = s.min
 
-            # init slider breakpoints
-            s.$watch 'current', (n,o) ->
-              # tu bude nejake undefined
-              if o!=undefined or n!=undefined and s.sections and s.breakpoints == undefined
-                s.breakpoints = []
-                stepDif = s.max / s.sections
-                for num in [1..s.sections]
-                  if (num*stepDif) > s.min
-                    s.breakpoints.push s.roundNum (stepDif * num), s.step, 0
-            
         
         .directive 'stopPropagation', () ->
           return (s,e,a) ->
-            e.on 'click mousedown', (e) ->
+            e.bind 'click mousedown touchstart', (e) ->
               e.stopPropagation()
             
 
@@ -132,22 +140,21 @@ angular
         # directive helper that returns percentage after click
         .directive 'detectClick', () ->
           return (s,e,a) ->
-            e.on 'click', (ev) ->
+            e.bind 'click', (ev) ->
               offset = s.getOffset(e)
               offset.percentage = offset.width / 100
               percInPx = ( (ev.pageX - offset.left) / offset.percentage)
-              s.current = s.getValueOfPercentage(percInPx, offset)
+              s.model = s.getValueOfPercentage(percInPx, offset)
               s.$apply()
 
-            # e.on 'mousemove', () ->
+            # e.bind 'mousemove', () ->
               # doriestit placeholder?
             
         
         # slider handle directive
         .directive 'smartHandle', (mouseService, $rootScope) ->
           return (s,e,a) ->
-            
-            e.on 'mousedown', (ev) ->
+            e.bind 'mousedown touchstart', (ev) ->
               ev.stopPropagation()
               
               # send object & s.$id to service

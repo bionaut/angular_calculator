@@ -4,12 +4,12 @@
     var sId, selected;
     selected = null;
     sId = null;
-    angular.element($window).on('mouseup', function(ev) {
+    angular.element($window).on('mouseup touchend', function(ev) {
       $rootScope.$broadcast('selectedreleased');
       selected = null;
       return sId = null;
     });
-    angular.element($window).on('mousemove', function(ev) {
+    angular.element($window).on('mousemove touchmove', function(ev) {
       if (selected) {
         return $rootScope.$broadcast('moveselected', ev.pageX);
       }
@@ -27,20 +27,29 @@
   }).directive('smartSlider', function(mouseService) {
     return {
       scope: {
-        min: '=',
-        max: '=',
-        step: '=',
-        current: '=',
+        min: '=?',
+        max: '=?',
+        step: '=?',
+        model: '=?',
         limits: '=?',
         sections: '=?'
       },
       restrict: 'E',
-      templateUrl: "vendor/smart_slider/smart_slider.html",
+      template: '<div class="slider-wrapper"><div ng-click="subtract(step)" class="subtract"></div><div detect-click="detect-click" class="bar-wrapper"><div ng-style="{width:getPercentage(model)}" class="active-bar"></div><div smart-handle="smart-handle" ng-style="{left:getPercentage(model)}" class="handle"><div ng-if="barTooltip" class="tooltip_top"></div><div ng-if="barTooltip" class="tooltip_bottom"></div></div><div ng-if="breakpoints" class="breakpoints"><div ng-repeat="breakpoint in breakpoints" ng-style="{left:getPercentage(breakpoint)}" stop-propagation="stop-propagation" ng-click="goTo(breakpoint)" class="breakpoint">{{breakpoint}}</div></div><div ng-if="limits" class="limits"><div ng-repeat="limit in limits" ng-style="{left:getPercentage(limit)}" class="limit">{{limit}}</div></div></div><div ng-click="add(step)" class="add"></div><input type="number" step="{{step}}" min="{{min}}" max="{{max}}" ng-model="model" class="amountInput"/></div>',
       replace: true,
       controller: function($scope, $element, $timeout) {
         var s;
         s = $scope;
-        s.$on('moveselected', function(ev, pageX) {
+        if (!s.min) {
+          s.min = 0;
+        }
+        if (!s.max) {
+          s.max = 100;
+        }
+        if (!s.step) {
+          s.step = 1;
+        }
+        s.$on('moveselected', function(ev, pageX, $rootScope) {
           var handle, offset, percInPx, targetScope, wrap;
           if (s.$id === mouseService.selected()[1]) {
             targetScope = ev.targetScope;
@@ -49,57 +58,21 @@
             offset = s.getOffset(wrap);
             offset.percentage = offset.width / 100;
             percInPx = (pageX - offset.left) / offset.percentage;
-            s.current = s.getValueOfPercentage(percInPx, offset);
+            s.model = s.getValueOfPercentage(percInPx, offset);
             return s.$apply();
           }
         });
-        s.$watch('current', function(n) {
+        s.$watch('model', function(n, o) {
+          var num, stepDif, _i, _ref, _results;
+          if (n === void 0) {
+            s.model = s.min;
+          }
           if (n < s.min) {
-            s.current = s.min;
+            s.model = s.min;
           }
           if (n > s.max) {
-            return s.current = s.max;
+            s.model = s.max;
           }
-        });
-        s.roundNum = function(number, increment, offset) {
-          return Math.round((number - offset) / increment) * increment + offset;
-        };
-        s.getOffset = function(element) {
-          var offset;
-          offset = element.get(0).getBoundingClientRect();
-          return offset;
-        };
-        s.getPercentage = function(n) {
-          var onePerc;
-          onePerc = (s.max - s.min) / 100;
-          return ((n - s.min) / onePerc) + "%";
-        };
-        s.getValueOfPercentage = function(perc, offset) {
-          var range;
-          range = s.max - s.min;
-          if (offset != null) {
-            return s.roundNum(((perc / 100) * range) + s.min, s.step, 0);
-          }
-        };
-        s.goTo = function(value) {
-          if (value != null) {
-            s.current = value;
-          }
-        };
-        s.add = function(step) {
-          s.current += step;
-          if (s.current > s.max) {
-            return s.current = s.max;
-          }
-        };
-        s.subtract = function(step) {
-          s.current -= step;
-          if (s.current < s.min) {
-            return s.current = s.min;
-          }
-        };
-        return s.$watch('current', function(n, o) {
-          var num, stepDif, _i, _ref, _results;
           if (o !== void 0 || n !== void 0 && s.sections && s.breakpoints === void 0) {
             s.breakpoints = [];
             stepDif = s.max / s.sections;
@@ -114,28 +87,69 @@
             return _results;
           }
         });
+        s.roundNum = function(number, increment, offset) {
+          return Math.round((number - offset) / increment) * increment + offset;
+        };
+        s.getOffset = function(element) {
+          var offset;
+          offset = element[0].getBoundingClientRect();
+          return offset;
+        };
+        s.getPercentage = function(n) {
+          var onePerc;
+          onePerc = (s.max - s.min) / 100;
+          return ((n - s.min) / onePerc) + "%";
+        };
+        s.getValueOfPercentage = function(perc, offset) {
+          var range;
+          if (s.max > s.min) {
+            range = s.max - s.min;
+          } else {
+            range = s.min - s.max;
+          }
+          if (offset != null) {
+            return s.roundNum(((perc / 100) * range) + s.min, s.step, 0);
+          }
+        };
+        s.goTo = function(value) {
+          if (value != null) {
+            s.model = value;
+          }
+        };
+        s.add = function(step) {
+          s.model += step;
+          if (s.model > s.max) {
+            return s.model = s.max;
+          }
+        };
+        return s.subtract = function(step) {
+          s.model -= step;
+          if (s.model < s.min) {
+            return s.model = s.min;
+          }
+        };
       }
     };
   }).directive('stopPropagation', function() {
     return function(s, e, a) {
-      return e.on('click mousedown', function(e) {
+      return e.bind('click mousedown touchstart', function(e) {
         return e.stopPropagation();
       });
     };
   }).directive('detectClick', function() {
     return function(s, e, a) {
-      return e.on('click', function(ev) {
+      return e.bind('click', function(ev) {
         var offset, percInPx;
         offset = s.getOffset(e);
         offset.percentage = offset.width / 100;
         percInPx = (ev.pageX - offset.left) / offset.percentage;
-        s.current = s.getValueOfPercentage(percInPx, offset);
+        s.model = s.getValueOfPercentage(percInPx, offset);
         return s.$apply();
       });
     };
   }).directive('smartHandle', function(mouseService, $rootScope) {
     return function(s, e, a) {
-      return e.on('mousedown', function(ev) {
+      return e.bind('mousedown touchstart', function(ev) {
         ev.stopPropagation();
         mouseService.selected(e, s.$id);
         return s.$apply();

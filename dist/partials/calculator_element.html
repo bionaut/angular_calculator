@@ -3,9 +3,9 @@
   <div ng-hide="output.amount.current" class="loaderIcon"></div>
   <div class="col-sm-8">
     <div class="calculator-header"><span class="title">Vyberte částku</span><span class="range">{{output.amount.min}} - {{output.amount.max}}</span></div>
-    <smart-slider min="output.amount.min" max="output.amount.max" step="output.amount.step" current="output.amount.current" sections="5"></smart-slider>
+    <smart-slider min="output.amount.min" max="output.amount.max" step="output.amount.step" model="output.amount.current" sections="5"></smart-slider>
     <div class="calculator-header"><span class="title">Deadline</span><span class="range">{{output.term.min}} - {{output.term.max}}</span></div>
-    <smart-slider min="output.term.min" max="output.term.max" step="output.term.step" current="output.term.current"></smart-slider>
+    <smart-slider min="output.term.min" max="output.term.max" step="output.term.step" model="output.term.current" sections="5"></smart-slider>
   </div>
   <div class="col-sm-4">
     <table>
