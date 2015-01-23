@@ -1,4 +1,5 @@
 .row
+	.loaderIcon(ng-hide="output.amount.current")
 	//- slider panel
 	.col-sm-8
 		
@@ -6,24 +7,22 @@
 			span.title Vyberte částku
 			span.range {{output.amount.min}} - {{output.amount.max}}
 
-		jk-slider(
+		smart-slider(
 				min="output.amount.min",
 				max="output.amount.max",
 				step="output.amount.step",
 				current="output.amount.current",
-				limits="output.amount.limits"
-				)
+				sections="5")
 
 		.calculator-header
 			span.title Deadline
 			span.range {{output.term.min}} - {{output.term.max}}
 
-		jk-slider(
+		smart-slider(
 				min="output.term.min",
 				max="output.term.max",
 				step="output.term.step",
-				current="output.term.current"
-				)
+				current="output.term.current")
 
 	//- side panel
 	.col-sm-4
@@ -57,8 +56,4 @@
 					tr(ng-repeat = "fee in output.fees | orderBy: 'price' ")
 						td.name {{fee.days}} dnů:
 						td.value {{fee.price}},-Kč
-					
-
-
-
 

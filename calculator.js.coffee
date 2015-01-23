@@ -2,7 +2,7 @@
 # Microloan calculator
 
 angular
-        .module 'Calculator', ['jk.slider']
+        .module 'Calculator', ['smartSlider.module']
         
 
         # MAIN directive
@@ -28,7 +28,6 @@ angular
             .then (result) ->
               tmp = []
               angular.forEach result, (response, key, obj) ->
-                
                 # offer
                 if response.data.hasOwnProperty 'offer'
                   
@@ -51,18 +50,34 @@ angular
                   $scope.viewConstraints = response.data
 
                   $scope.output.amount=
-                    current:    parseInt response.data.constraints.amount_interval.default_value
-                    min:        parseInt response.data.constraints.amount_interval.min
-                    max:        parseInt response.data.constraints.amount_interval.max
-                    step:       parseInt response.data.constraints.amount_interval.step
-                    limits:     response.data.constraints.loan_limits
+                    current:    parseInt response.data.constraints.default_amount
+                    min:        parseInt response.data.constraints.min_amount
+                    max:        parseInt response.data.constraints.max_amount
+                    step:       parseInt response.data.constraints.amount_step
+                    # limits:     response.data.constraints.loan_limits
 
                   $scope.output.term=
-                    current:    parseInt response.data.constraints.term_interval.default_value
-                    min:        parseInt response.data.constraints.term_interval.min
-                    max:        parseInt response.data.constraints.term_interval.max
-                    step:       parseInt response.data.constraints.term_interval.step
+                    current:    parseInt response.data.constraints.default_term
+                    min:        parseInt response.data.constraints.min_term
+                    max:        parseInt response.data.constraints.max_term
+                    step:       parseInt response.data.constraints.term_step
                     # limits:   response.data.constraints.loan_limits
+            ,(err) ->
+              $scope.output.sidebar =
+                new_interest_before_discount: 777
+                interest_rate: 9
+                annual_percentage_rate: 2
+              $scope.output.amount=
+                current: 555
+                min: 1000
+                max: 9000
+                step: 100
+
+              $scope.output.term=
+                current: 6
+                min: 4
+                max: 18
+                step: 1
 
 
         .filter 'timestamp', () ->

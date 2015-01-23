@@ -1303,63 +1303,25 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/dist\/vendor\/jk_slider\/jk_slider.css": {
-		"fileType": 16,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/jk_slider\/jk_slider.css",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/dist\/vendor\/jk_slider\/jk_slider.html": {
+	"\/dist\/vendor\/smart_slider\/smart_slider.html": {
 		"fileType": 8192,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/jk_slider\/jk_slider.html",
+		"inputAbbreviatedPath": "\/dist\/vendor\/smart_slider\/smart_slider.html",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/jk_slider\/jk_slider.coffee": {
-		"createSourceMap": 0,
-		"fileType": 32,
-		"ignore": 0,
+	"\/dist\/vendor\/smart_slider\/smart_slider.js": {
+		"fileType": 64,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/jk_slider\/jk_slider.coffee",
-		"minifyOutput": 0,
-		"outputAbbreviatedPath": "\/dist\/vendor\/jk_slider\/jk_slider.js",
+		"inputAbbreviatedPath": "\/dist\/vendor\/smart_slider\/smart_slider.js",
+		"outputAbbreviatedPath": "\/dist\/vendor\/smart_slider\/min\/smart_slider-min.js",
 		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 1,
-		"outputStyle": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
-		},
-	"\/jk_slider\/slider.css.styl": {
-		"createSourceMap": 0,
-		"debugStyle": 0,
-		"fileType": 8,
-		"ignore": 0,
-		"ignoreWasSetByUser": 1,
-		"importCSS": 0,
-		"inputAbbreviatedPath": "\/jk_slider\/slider.css.styl",
-		"outputAbbreviatedPath": "\/dist\/vendor\/jk_slider\/jk_slider.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 1,
-		"outputStyle": 0,
-		"resolveRelativeURLS": 0,
-		"shouldRunAutoprefixer": 1,
-		"shouldRunBless": 0
-		},
-	"\/jk_slider\/slider.tmp.jade": {
-		"compileDebug": 1,
-		"fileType": 512,
-		"ignore": 0,
-		"ignoreWasSetByUser": 1,
-		"inputAbbreviatedPath": "\/jk_slider\/slider.tmp.jade",
-		"outputAbbreviatedPath": "\/dist\/vendor\/jk_slider\/jk_slider.html",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 1,
-		"outputStyle": 0
 		},
 	"\/partials_jade\/calculator_element.jade": {
 		"compileDebug": 1,
@@ -1372,39 +1334,44 @@
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 0
 		},
-	"\/partials_jade\/calculator_range_slider.jade": {
+	"\/smart_slider\/slider.css.styl": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"fileType": 8,
+		"ignore": 0,
+		"ignoreWasSetByUser": 1,
+		"importCSS": 0,
+		"inputAbbreviatedPath": "\/smart_slider\/slider.css.styl",
+		"outputAbbreviatedPath": "\/dist\/vendor\/smart_slider\/smart_slider.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 1,
+		"outputStyle": 0,
+		"resolveRelativeURLS": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 0
+		},
+	"\/smart_slider\/slider.tmp.jade": {
 		"compileDebug": 1,
 		"fileType": 512,
 		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/partials_jade\/calculator_range_slider.jade",
-		"outputAbbreviatedPath": "\/dist\/partials\/calculator_range_slider.html",
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/smart_slider\/slider.tmp.jade",
+		"outputAbbreviatedPath": "\/dist\/vendor\/smart_slider\/smart_slider.html",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 0
 		},
-	"\/slider\/slider.coffee": {
+	"\/smart_slider\/smart_slider.coffee": {
 		"createSourceMap": 0,
 		"fileType": 32,
-		"ignore": 1,
+		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/slider\/slider.coffee",
-		"minifyOutput": 1,
-		"outputAbbreviatedPath": "\/slider\/slider.js",
+		"inputAbbreviatedPath": "\/smart_slider\/smart_slider.coffee",
+		"minifyOutput": 0,
+		"outputAbbreviatedPath": "\/dist\/vendor\/smart_slider\/smart_slider.js",
 		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
+		"outputPathIsSetByUser": 1,
 		"outputStyle": 0,
-		"syntaxCheckerStyle": 1
-		},
-	"\/slider\/slider.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/slider\/slider.js",
-		"outputAbbreviatedPath": "\/slider\/min\/slider-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		}
 	},
@@ -1412,14 +1379,6 @@
 	],
 "lastSavedByUser": "Honza",
 "manualImportLinks": {
-	"\/calculator.js.coffee": [
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/slider\/slider.coffee",
-			"position": 0,
-			"type": 0
-			}
-		]
 	},
 "projectAttributes": {
 	"bowerAbbreviatedPath": "",
