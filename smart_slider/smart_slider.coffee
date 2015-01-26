@@ -6,7 +6,7 @@
 
 
 angular
-        .module 'smartSlider.module', ['ngTouch']
+        .module 'smartSlider.module', []
             
         # mouse service for detecting mouse events
         .factory 'mouseService', ($window, $rootScope) ->
@@ -48,11 +48,10 @@ angular
             model: '=?'
             limits: '=?'
             sections: '=?'
-            # barTooltip: '=?'
+            tooltip: '=?'
 
           restrict: 'E'
-          # templateUrl: "vendor/smart_slider/smart_slider.html"
-          template: '<div class="slider-wrapper"><div ng-click="subtract(step)" class="subtract"></div><div detect-click="detect-click" class="bar-wrapper"><div ng-style="{width:getPercentage(model)}" class="active-bar"></div><div smart-handle="smart-handle" ng-style="{left:getPercentage(model)}" class="handle"><div ng-if="barTooltip" class="tooltip_top"></div><div ng-if="barTooltip" class="tooltip_bottom"></div></div><div ng-if="breakpoints" class="breakpoints"><div ng-repeat="breakpoint in breakpoints" ng-style="{left:getPercentage(breakpoint)}" stop-propagation="stop-propagation" ng-click="goTo(breakpoint)" class="breakpoint">{{breakpoint}}</div></div><div ng-if="limits" class="limits"><div ng-repeat="limit in limits" ng-style="{left:getPercentage(limit)}" class="limit">{{limit}}</div></div></div><div ng-click="add(step)" class="add"></div><input type="text" step="{{step}}" min="{{min}}" max="{{max}}" ng-model="model" ng-model-options="{debounce: 500}" class="amountInput"/></div>'
+          templateUrl: "vendor/smart_slider/smart_slider.html"
           replace: true
 
           controller: ($scope, $element, $timeout) ->
@@ -60,6 +59,8 @@ angular
             s = $scope
                         
 
+            # init phase
+            ############
             # default values
             if !s.min then s.min = 0
             if !s.max then s.max = 100
@@ -86,13 +87,23 @@ angular
             s.$watch 'model', (n, o) ->
               if n == undefined
                 s.model = s.min
+              
               # limit range - (auto range setter)
               if n < s.min then s.model = s.min
               if n > s.max then s.model = s.max
               s.model = s.roundNum s.model, s.step, 0
-
-              s.$apply()
               
+
+              # tooltip show/hide
+              # check if tooltip is present
+              if angular.isObject(s.tooltip)
+                angular.forEach s.tooltip, (value, key) ->
+                  if parseInt(key) <= s.model
+                    s.showTooltip = value
+                  else s.showTooltip = null
+                
+
+              # init code segment for sections (if present)
               if o!=undefined or n!=undefined and s.sections and s.breakpoints == undefined
                 s.breakpoints = []
                 stepDif = s.max / s.sections
@@ -153,9 +164,6 @@ angular
               percInPx = ( (ev.pageX - offset.left) / offset.percentage)
               s.model = s.getValueOfPercentage(percInPx, offset)
               s.$apply()
-
-            # e.bind 'mousemove', () ->
-              # doriestit placeholder?
             
         
         # slider handle directive
@@ -168,15 +176,9 @@ angular
               mouseService.selected(e, s.$id)
               s.$apply()
 
-        .filter 'onlyNumber', (input) ->
-          console.log input
+        # .filter 'onlyNumber', (input) ->
+          # console.log input
         
-        
-
-            # if angular.isObject($scope.barTooltip)
-            # $scope.barTooltip = (params) ->
-            #   if angular.isObject(params)
-            #     console.log 'je to objekt'
             
             
             

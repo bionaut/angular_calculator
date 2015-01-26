@@ -3,10 +3,15 @@
 
 angular
         .module 'Calculator', ['smartSlider.module']
-        
+
+        # API ENDPOINTS
+        .value 'api_offer', 'http://localhost:3000/offer'
+        .value 'api_constraints', 'http://localhost:3000/constraints'
+
+
 
         # MAIN directive
-        .directive 'calculator', ($q, $http) ->
+        .directive 'calculator', ($q, $http, api_offer, api_constraints) ->
           restrict: 'E'
           templateUrl: 'partials/calculator_element.html'
           controller: ($scope) ->
@@ -18,10 +23,10 @@ angular
                 'Accept': 'application/json; charset=utf-8'
                 'Content-Type': 'application/json'
 
-            offer = $http.get "http://localhost:3000/offer",
+            offer = $http.get api_offer,
               requestOptions
 
-            constraints = $http.get "http://localhost:3000/constraints",
+            constraints = $http.get api_constraints,
               requestOptions
 
             $q.all([ offer, constraints])
@@ -30,7 +35,6 @@ angular
               angular.forEach result, (response, key, obj) ->
                 # offer
                 if response.data.hasOwnProperty 'offer'
-                  
                   # format output for sidebar fees
                   angular.forEach response.data.offer.extension_fees, (value, key) ->
                     tmp.push
@@ -62,7 +66,9 @@ angular
                     max:        parseInt response.data.constraints.max_term
                     step:       parseInt response.data.constraints.term_step
                     # limits:   response.data.constraints.loan_limits
+            
             # backup for testing
+            # TODO: fallback??
             ,(err) ->
               $scope.output.sidebar =
                 new_interest_before_discount: 777

@@ -1,5 +1,12 @@
 @import 'nib'
 
+
+// colors
+
+mainColor = #139afe
+shadowColor = #8f989b
+
+
 .slider-wrapper
 	relative top left
 	width 100%
@@ -15,7 +22,7 @@
 		width 5%
 		height 20px
 		line-height 20px
-		background #139afe
+		background mainColor
 		z-index: 110
 		cursor: pointer
 		border-radius 2px
@@ -45,7 +52,7 @@
 		float left
 		width 60%
 		height 20px
-		box-shadow: 0px 1px 3px -2px #8f989b
+		box-shadow: 0px 1px 3px -2px shadowColor
 		
 		
 		.limits, .breakpoints
@@ -54,7 +61,7 @@
 			height 20px
 			margin-top -20px
 			font-size 10px
-			color #6c6c6c
+			color shadowColor
 			.limit, .breakpoint
 				absolute top left
 				height 45px
@@ -69,13 +76,13 @@
 					absolute top 40px left 50%
 					height 5px
 					width 1px
-					background #6c6c6c
+					background shadowColor
 				&:after
 					content ''
 					absolute top 15px left 50%
 					height 5px
 					width 1px
-					background #6c6c6c
+					background shadowColor
 				&:last-child
 					transform translateX(10%)
 					font-weight: 800
@@ -88,7 +95,7 @@
 			absolute top 0px left
 			height 20px
 			width 10%
-			background #16a8f9
+			background mainColor
 			cursor: pointer
 			transform translateX(-50%)
 			padding 0px 0px
@@ -99,19 +106,41 @@
 				absolute top left 50%
 				width 1px
 				height 100%
-				background #eefffb
+				background white
+			.handletooltip
+				absolute top 30px left
+				width 200px
+				font-size 10px
+				height auto
+				transform translateX(-81px)
+				background mainColor
+				text-align center
+				border-radius: 20px
+				padding 2px 0px
+				color white
+				box-shadow 0px 0px 2px 0px #8e8e8e
+				transform-origin 50% 50%
+				&.ng-hide-remove.ng-hide-remove-active
+					animation bounceIn .4s ease
+				&.ng-hide
+					opacity 0
 				
-
+				// transition transform .2s ease
+				// &:before
+					// content ''
+					// absolute top -2px left 50%
+					// width 5px
+					// height 5px
+					// background mainColor
+					// transform rotateZ(45deg) translateX(-50%)
+									
 		
 		.active-bar
 			relative top left
 			height 100%
 			width 0%
 			background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAGklEQVQIW2NkQAKMIHbLyWP/a8ytGMEcGAAASr0EBDrfj/8AAAAASUVORK5CYII=')
-			// background url('images/bar.gif')
-			// background #ffc679
-			// filter: hue-rotate(150deg)
-			box-shadow: 0 0 1px -0.5px #959595
+			box-shadow: 0 0 1px -0.5px shadowColor
 	
 
 	.amountInput
@@ -122,9 +151,35 @@
 		text-align center
 		float left
 		padding 0
-		box-shadow: 0px 1px 3px -2px #8f989b
+		box-shadow: 0px 1px 3px -2px shadowColor
 		border none
 		
+
+
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(.3) translateX(-81px);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05) translateX(-81px);
+  }
+
+  70% {
+    transform: scale(.9) translateX(-81px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateX(-81px);
+  }
+}
+
+
+
 
 
 @keyframes bounce {

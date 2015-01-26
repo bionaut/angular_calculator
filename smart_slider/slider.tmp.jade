@@ -8,8 +8,7 @@
 		
 		//- handle
 		.handle(smart-handle ,ng-style="{left:getPercentage(model)}" )
-			.tooltip_top(ng-if="barTooltip")
-			.tooltip_bottom(ng-if="barTooltip")
+			.handletooltip(ng-show="showTooltip") {{showTooltip}}
 
 		//- optional sections
 		.breakpoints(ng-if="breakpoints")
@@ -28,9 +27,9 @@
 	.add(ng-click = "add(step)")
 	
 	//- manual input field
-	input.amountInput(type="number",
+	input.amountInput(type="text",
 		  			  step="{{step}}",
 		  			  min="{{min}}",
 		  			  max="{{max}}",
 		  			  ng-model="model",
-		  			  ng-model-options="{debounce: '500'}")
+		  			  ng-model-options="{debounce: 500}")
