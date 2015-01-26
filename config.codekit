@@ -1303,6 +1303,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/dist\/vendor\/smart_slider\/index.html": {
+		"fileType": 8192,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/dist\/vendor\/smart_slider\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/dist\/vendor\/smart_slider\/smart_slider.css": {
 		"fileType": 16,
 		"ignore": 1,
@@ -1320,17 +1329,6 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
-		},
-	"\/dist\/vendor\/smart_slider\/smart_slider.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/smart_slider\/smart_slider.js",
-		"outputAbbreviatedPath": "\/dist\/vendor\/smart_slider\/min\/smart_slider-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
 		},
 	"\/partials_jade\/calculator_element.jade": {
 		"compileDebug": 1,
@@ -2171,7 +2169,7 @@
 			}
 		},
 	"uglifyReservedNamesString": "$",
-	"websiteRelativeRoot": "dist\/vendor\/smart_slider"
+	"websiteRelativeRoot": "dist"
 	},
 "settingsFileVersion": "2"
 }

@@ -71,7 +71,7 @@ angular
               $scope.output.amount=
                 current: 555
                 min: 1000
-                max: 9000
+                max: 7500
                 step: 100
 
               $scope.output.term=

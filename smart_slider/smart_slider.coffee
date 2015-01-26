@@ -6,8 +6,8 @@
 
 
 angular
-        .module 'smartSlider.module', []
-          
+        .module 'smartSlider.module', ['ngTouch']
+            
         # mouse service for detecting mouse events
         .factory 'mouseService', ($window, $rootScope) ->
           
@@ -16,13 +16,17 @@ angular
           sId = null
 
           # listeners
-          angular.element($window).on 'mouseup touchend', (ev) ->
+          angular.element($window).on 'touchend mouseup', (ev) ->
             $rootScope.$broadcast 'selectedreleased'
             selected = null
             sId = null
-          angular.element($window).on 'mousemove touchmove', (ev) ->
+          angular.element($window).on 'touchmove mousemove', (ev) ->
+            ev.stopPropagation()
             if selected
-              $rootScope.$broadcast 'moveselected', ev.pageX
+              if ev.targetTouches && ev.type == 'touchmove'
+                $rootScope.$broadcast 'moveselected', ev.targetTouches[0].pageX
+              else
+                $rootScope.$broadcast 'moveselected', ev.pageX
               
           
           # return
@@ -48,12 +52,13 @@ angular
 
           restrict: 'E'
           # templateUrl: "vendor/smart_slider/smart_slider.html"
-          template: '<div class="slider-wrapper"><div ng-click="subtract(step)" class="subtract"></div><div detect-click="detect-click" class="bar-wrapper"><div ng-style="{width:getPercentage(model)}" class="active-bar"></div><div smart-handle="smart-handle" ng-style="{left:getPercentage(model)}" class="handle"><div ng-if="barTooltip" class="tooltip_top"></div><div ng-if="barTooltip" class="tooltip_bottom"></div></div><div ng-if="breakpoints" class="breakpoints"><div ng-repeat="breakpoint in breakpoints" ng-style="{left:getPercentage(breakpoint)}" stop-propagation="stop-propagation" ng-click="goTo(breakpoint)" class="breakpoint">{{breakpoint}}</div></div><div ng-if="limits" class="limits"><div ng-repeat="limit in limits" ng-style="{left:getPercentage(limit)}" class="limit">{{limit}}</div></div></div><div ng-click="add(step)" class="add"></div><input type="number" step="{{step}}" min="{{min}}" max="{{max}}" ng-model="model" class="amountInput"/></div>'
+          template: '<div class="slider-wrapper"><div ng-click="subtract(step)" class="subtract"></div><div detect-click="detect-click" class="bar-wrapper"><div ng-style="{width:getPercentage(model)}" class="active-bar"></div><div smart-handle="smart-handle" ng-style="{left:getPercentage(model)}" class="handle"><div ng-if="barTooltip" class="tooltip_top"></div><div ng-if="barTooltip" class="tooltip_bottom"></div></div><div ng-if="breakpoints" class="breakpoints"><div ng-repeat="breakpoint in breakpoints" ng-style="{left:getPercentage(breakpoint)}" stop-propagation="stop-propagation" ng-click="goTo(breakpoint)" class="breakpoint">{{breakpoint}}</div></div><div ng-if="limits" class="limits"><div ng-repeat="limit in limits" ng-style="{left:getPercentage(limit)}" class="limit">{{limit}}</div></div></div><div ng-click="add(step)" class="add"></div><input type="text" step="{{step}}" min="{{min}}" max="{{max}}" ng-model="model" ng-model-options="{debounce: 500}" class="amountInput"/></div>'
           replace: true
 
           controller: ($scope, $element, $timeout) ->
             
             s = $scope
+                        
 
             # default values
             if !s.min then s.min = 0
@@ -81,9 +86,12 @@ angular
             s.$watch 'model', (n, o) ->
               if n == undefined
                 s.model = s.min
-              # limit range
+              # limit range - (auto range setter)
               if n < s.min then s.model = s.min
               if n > s.max then s.model = s.max
+              s.model = s.roundNum s.model, s.step, 0
+
+              s.$apply()
               
               if o!=undefined or n!=undefined and s.sections and s.breakpoints == undefined
                 s.breakpoints = []
@@ -134,7 +142,6 @@ angular
           return (s,e,a) ->
             e.bind 'click mousedown touchstart', (e) ->
               e.stopPropagation()
-            
 
 
         # directive helper that returns percentage after click
@@ -154,13 +161,17 @@ angular
         # slider handle directive
         .directive 'smartHandle', (mouseService, $rootScope) ->
           return (s,e,a) ->
-            e.bind 'mousedown touchstart', (ev) ->
+            
+            e.bind 'touchstart mousedown', (ev) ->
               ev.stopPropagation()
-              
               # send object & s.$id to service
               mouseService.selected(e, s.$id)
               s.$apply()
 
+        .filter 'onlyNumber', (input) ->
+          console.log input
+        
+        
 
             # if angular.isObject($scope.barTooltip)
             # $scope.barTooltip = (params) ->
