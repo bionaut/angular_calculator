@@ -2,174 +2,6 @@
 "CodeKitInfo": "This is a CodeKit 2.x project configuration file. It is designed to sync project settings across multiple machines. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. If you do so, you will likely cause CodeKit to crash. This file is not useful unless accompanied by the project that created it in CodeKit 2. This file is not backwards-compatible with CodeKit 1.x. For more information, see: http:\/\/incident57.com\/codekit",
 "creatorBuild": "18270",
 "files": {
-	"\/bower_components\/angular-rangeslider\/angular.rangeSlider.css": {
-		"fileType": 16,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/angular.rangeSlider.css",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/bower_components\/angular-rangeslider\/angular.rangeSlider.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/angular.rangeSlider.js",
-		"outputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/min\/angular.rangeSlider-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/bower_components\/angular-rangeslider\/demo\/index.html": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/demo\/index.html",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/bower_components\/angular-rangeslider\/demo\/legacy.html": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/demo\/legacy.html",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/bower_components\/angular-rangeslider\/demo\/test.html": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/demo\/test.html",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/bower_components\/angular-rangeslider\/README.md": {
-		"enableFootnoteSupport": 0,
-		"enableSmartyPants": 1,
-		"expandTabs": 1,
-		"fileType": 4096,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/README.md",
-		"outputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/README.html",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/bower_components\/angular-rangeslider\/screenshots\/attached-handles-horizontal.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 1347,
-		"inputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/screenshots\/attached-handles-horizontal.png",
-		"outputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/screenshots\/attached-handles-horizontal.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/bower_components\/angular-rangeslider\/screenshots\/attached-handles-vertical.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 1725,
-		"inputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/screenshots\/attached-handles-vertical.png",
-		"outputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/screenshots\/attached-handles-vertical.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/bower_components\/angular-rangeslider\/screenshots\/currency.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 5885,
-		"inputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/screenshots\/currency.png",
-		"outputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/screenshots\/currency.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/bower_components\/angular-rangeslider\/screenshots\/disabled.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 4785,
-		"inputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/screenshots\/disabled.png",
-		"outputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/screenshots\/disabled.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/bower_components\/angular-rangeslider\/screenshots\/pinned.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 6509,
-		"inputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/screenshots\/pinned.png",
-		"outputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/screenshots\/pinned.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/bower_components\/angular-rangeslider\/screenshots\/slider.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 5023,
-		"inputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/screenshots\/slider.png",
-		"outputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/screenshots\/slider.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/bower_components\/angular-rangeslider\/screenshots\/vertical.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 6127,
-		"inputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/screenshots\/vertical.png",
-		"outputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/screenshots\/vertical.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/bower_components\/angular-rangeslider\/scss\/_rangeSlider.scss": {
-		"createSourceMap": 0,
-		"debugStyle": 0,
-		"decimalPrecision": 10,
-		"fileType": 4,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/scss\/_rangeSlider.scss",
-		"outputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/css\/_rangeSlider.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
-		"useLibsass": 0
-		},
-	"\/bower_components\/angular-rangeslider\/scss\/angular.rangeSlider.scss": {
-		"createSourceMap": 0,
-		"debugStyle": 0,
-		"decimalPrecision": 10,
-		"fileType": 4,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/scss\/angular.rangeSlider.scss",
-		"outputAbbreviatedPath": "\/bower_components\/angular-rangeslider\/css\/angular.rangeSlider.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
-		"useLibsass": 0
-		},
 	"\/bower_components\/angular-touch\/angular-touch.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -1182,40 +1014,6 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/bower_components\/venturocket-angular-slider\/build\/angular-slider.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/bower_components\/venturocket-angular-slider\/build\/angular-slider.js",
-		"outputAbbreviatedPath": "\/bower_components\/venturocket-angular-slider\/build\/min\/angular-slider-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/bower_components\/venturocket-angular-slider\/build\/angular-slider.min.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/bower_components\/venturocket-angular-slider\/build\/angular-slider.min.js",
-		"outputAbbreviatedPath": "\/bower_components\/venturocket-angular-slider\/build\/min\/angular-slider.min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/bower_components\/venturocket-angular-slider\/README.md": {
-		"enableFootnoteSupport": 0,
-		"enableSmartyPants": 1,
-		"expandTabs": 1,
-		"fileType": 4096,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/bower_components\/venturocket-angular-slider\/README.md",
-		"outputAbbreviatedPath": "\/bower_components\/venturocket-angular-slider\/README.html",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/calculator.css.styl": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -1276,15 +1074,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/dist\/compiled.css": {
-		"fileType": 16,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/compiled.css",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/dist\/index.html": {
 		"fileType": 8192,
 		"ignore": 1,
@@ -1329,17 +1118,6 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
-		},
-	"\/dist\/vendor\/smart_slider\/smart_slider.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dist\/vendor\/smart_slider\/smart_slider.js",
-		"outputAbbreviatedPath": "\/dist\/vendor\/smart_slider\/min\/smart_slider-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
 		},
 	"\/partials_jade\/calculator_element.jade": {
 		"compileDebug": 1,

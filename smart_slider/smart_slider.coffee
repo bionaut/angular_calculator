@@ -87,7 +87,13 @@ angular
             s.$watch 'model', (n, o) ->
               if n == undefined
                 s.model = s.min
+
+              # prevent non Numbers to be added
+              if isNaN(s.model)
+                s.model = s.min
               
+              s.model = parseInt(s.model)
+
               # limit range - (auto range setter)
               if n < s.min then s.model = s.min
               if n > s.max then s.model = s.max
@@ -176,9 +182,21 @@ angular
               mouseService.selected(e, s.$id)
               s.$apply()
 
-        # .filter 'onlyNumber', (input) ->
-          # console.log input
-        
-            
-            
-            
+        # .directive "numberOnlyInput", ->
+        #   restrict: "A"
+        #   scope:
+        #     inputValue: "="
+        #     inputName: "="
+
+        #   link: (scope) ->
+        #     scope.$watch "inputValue", (newValue, oldValue) ->
+        #       arr = String(newValue).split("")
+        #       return  if arr.length is 0
+        #       return  if arr.length is 1 and (arr[0] is "-" or arr[0] is ".")
+        #       return  if arr.length is 2 and newValue is "-."
+        #       scope.model = oldValue  if isNaN(newValue)
+        #       return
+        #     return
+
+
+

@@ -73,6 +73,10 @@
           if (n === void 0) {
             s.model = s.min;
           }
+          if (isNaN(s.model)) {
+            s.model = s.min;
+          }
+          s.model = parseInt(s.model);
           if (n < s.min) {
             s.model = s.min;
           }
